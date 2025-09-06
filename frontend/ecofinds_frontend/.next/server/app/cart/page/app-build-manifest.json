@@ -1,18 +1,24 @@
 {
   "pages": {
     "/cart/page": [
-      "static/chunks/99653107a9d55c9e.js",
-      "static/chunks/3da0e48d52353bef.js",
-      "static/chunks/6e8a9a9cb75213f3.css",
-      "static/chunks/2274e79bc0c3662c.js",
-      "static/chunks/b2f1258b0bbebbd4.js",
-      "static/chunks/791d3ea1b4c9f67b.js",
-      "static/chunks/9ac4ee9b01b7bcec.js",
-      "static/chunks/a292d7abcbfa577a.js",
-      "static/chunks/eaceea136f582608.js",
-      "static/chunks/c8dd297278a541e1.js",
-      "static/chunks/4c152acd1cf38cad.js",
-      "static/chunks/turbopack-506a48eeb6dc172a.js"
+      "static/chunks/442d5_next_dist_e219eecb._.js",
+      "static/chunks/ecofinds_frontend_src_app_favicon_ico_mjs_7c539f90._.js",
+      "static/chunks/[root-of-the-server]__daf95157._.css",
+      "static/chunks/442d5_0b6c08b9._.js",
+      "static/chunks/ecofinds_frontend_src_e7ea5d3b._.js",
+      "static/chunks/ecofinds_frontend_src_app_layout_tsx_a63eba27._.js",
+      "static/chunks/442d5_next_dist_client_components_builtin_global-error_6f121d6a.js",
+      "static/chunks/ecofinds_frontend_bae2ea29._.js",
+      "static/chunks/ecofinds_frontend_src_app_cart_page_tsx_6f121d6a._.js",
+      "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_e6ce5e10._.js",
+      "static/chunks/442d5_next_dist_compiled_react-dom_b5f296a3._.js",
+      "static/chunks/442d5_next_dist_compiled_next-devtools_index_9ffd2e64.js",
+      "static/chunks/442d5_next_dist_compiled_0e1ebae5._.js",
+      "static/chunks/442d5_next_dist_client_2ad63102._.js",
+      "static/chunks/442d5_next_dist_c3e6b734._.js",
+      "static/chunks/442d5_@swc_helpers_cjs_35e047f2._.js",
+      "static/chunks/ecofinds_frontend_a0ff3932._.js",
+      "static/chunks/turbopack-ecofinds_frontend_be29055b._.js"
     ]
   }
 }

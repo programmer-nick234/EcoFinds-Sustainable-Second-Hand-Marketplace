@@ -1,48 +1,64 @@
 {
   "app": {
+    "[project]/ecofinds_frontend/src/app/_not-found/page": [
+      "static/media/caa3a2e1cccd8315.p.6435ea53.woff2",
+      "static/media/797e433ab948586e.p.dbea232f.woff2"
+    ],
+    "[project]/ecofinds_frontend/src/app/cart/page": [
+      "static/media/caa3a2e1cccd8315.p.6435ea53.woff2",
+      "static/media/797e433ab948586e.p.dbea232f.woff2"
+    ],
     "[project]/ecofinds_frontend/src/app/dashboard/page": [
-      "static/media/caa3a2e1cccd8315-s.p.6435ea53.woff2",
-      "static/media/797e433ab948586e-s.p.dbea232f.woff2"
+      "static/media/caa3a2e1cccd8315.p.6435ea53.woff2",
+      "static/media/797e433ab948586e.p.dbea232f.woff2"
+    ],
+    "[project]/ecofinds_frontend/src/app/forgot-password/page": [
+      "static/media/caa3a2e1cccd8315.p.6435ea53.woff2",
+      "static/media/797e433ab948586e.p.dbea232f.woff2"
     ],
     "[project]/ecofinds_frontend/src/app/landing/page": [
-      "static/media/caa3a2e1cccd8315-s.p.6435ea53.woff2",
-      "static/media/797e433ab948586e-s.p.dbea232f.woff2"
+      "static/media/caa3a2e1cccd8315.p.6435ea53.woff2",
+      "static/media/797e433ab948586e.p.dbea232f.woff2"
     ],
     "[project]/ecofinds_frontend/src/app/login/page": [
-      "static/media/caa3a2e1cccd8315-s.p.6435ea53.woff2",
-      "static/media/797e433ab948586e-s.p.dbea232f.woff2"
+      "static/media/caa3a2e1cccd8315.p.6435ea53.woff2",
+      "static/media/797e433ab948586e.p.dbea232f.woff2"
     ],
     "[project]/ecofinds_frontend/src/app/messages/page": [
       "static/media/caa3a2e1cccd8315-s.p.6435ea53.woff2",
       "static/media/797e433ab948586e-s.p.dbea232f.woff2"
     ],
     "[project]/ecofinds_frontend/src/app/page": [
-      "static/media/caa3a2e1cccd8315-s.p.6435ea53.woff2",
-      "static/media/797e433ab948586e-s.p.dbea232f.woff2"
+      "static/media/caa3a2e1cccd8315.p.6435ea53.woff2",
+      "static/media/797e433ab948586e.p.dbea232f.woff2"
     ],
     "[project]/ecofinds_frontend/src/app/products/[id]/edit/page": [
       "static/media/caa3a2e1cccd8315-s.p.6435ea53.woff2",
       "static/media/797e433ab948586e-s.p.dbea232f.woff2"
     ],
     "[project]/ecofinds_frontend/src/app/products/[id]/page": [
-      "static/media/caa3a2e1cccd8315-s.p.6435ea53.woff2",
-      "static/media/797e433ab948586e-s.p.dbea232f.woff2"
+      "static/media/caa3a2e1cccd8315.p.6435ea53.woff2",
+      "static/media/797e433ab948586e.p.dbea232f.woff2"
     ],
     "[project]/ecofinds_frontend/src/app/products/create/page": [
-      "static/media/caa3a2e1cccd8315-s.p.6435ea53.woff2",
-      "static/media/797e433ab948586e-s.p.dbea232f.woff2"
+      "static/media/caa3a2e1cccd8315.p.6435ea53.woff2",
+      "static/media/797e433ab948586e.p.dbea232f.woff2"
     ],
     "[project]/ecofinds_frontend/src/app/products/my-products/page": [
-      "static/media/caa3a2e1cccd8315-s.p.6435ea53.woff2",
-      "static/media/797e433ab948586e-s.p.dbea232f.woff2"
+      "static/media/caa3a2e1cccd8315.p.6435ea53.woff2",
+      "static/media/797e433ab948586e.p.dbea232f.woff2"
     ],
     "[project]/ecofinds_frontend/src/app/products/page": [
-      "static/media/caa3a2e1cccd8315-s.p.6435ea53.woff2",
-      "static/media/797e433ab948586e-s.p.dbea232f.woff2"
+      "static/media/caa3a2e1cccd8315.p.6435ea53.woff2",
+      "static/media/797e433ab948586e.p.dbea232f.woff2"
+    ],
+    "[project]/ecofinds_frontend/src/app/profile/page": [
+      "static/media/caa3a2e1cccd8315.p.6435ea53.woff2",
+      "static/media/797e433ab948586e.p.dbea232f.woff2"
     ],
     "[project]/ecofinds_frontend/src/app/register/page": [
-      "static/media/caa3a2e1cccd8315-s.p.6435ea53.woff2",
-      "static/media/797e433ab948586e-s.p.dbea232f.woff2"
+      "static/media/caa3a2e1cccd8315.p.6435ea53.woff2",
+      "static/media/797e433ab948586e.p.dbea232f.woff2"
     ]
   },
   "appUsingSizeAdjust": true,

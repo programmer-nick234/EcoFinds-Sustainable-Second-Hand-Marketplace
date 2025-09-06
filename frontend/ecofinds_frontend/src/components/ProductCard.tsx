@@ -112,98 +112,98 @@ export default function ProductCard({
 
   return (
     <Link href={`/products/${product.id}`}>
-      <div className="card card-interactive group cursor-pointer">
-        <div className="relative overflow-hidden rounded-t-2xl">
+      <div className="bg-white rounded-3xl transition-all duration-500 group cursor-pointer overflow-hidden border border-gray-100 hover:border-green-200">
+        <div className="relative overflow-hidden">
           {product.image ? (
             <img
               src={getImageUrl(product.image)}
               alt={product.title}
-              className="w-full h-52 object-cover group-hover:scale-110 transition-transform duration-700"
+              className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500"
               onError={(e) => {
                 (e.target as HTMLImageElement).style.display = 'none';
               }}
             />
           ) : (
-            <div className="w-full h-52 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
+            <div className="w-full h-56 bg-gradient-to-br from-green-50 to-green-100 flex items-center justify-center">
               <div className="text-center">
-                <span className="text-gray-300 text-5xl mb-2 block">📷</span>
-                <span className="text-gray-400 text-sm">No image</span>
+                <span className="text-green-300 text-6xl mb-3 block">📷</span>
+                <span className="text-green-400 text-sm font-medium">No image available</span>
               </div>
             </div>
           )}
           
-          {/* Gradient overlay for better text readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          {/* Subtle overlay for better contrast */}
+          <div className="absolute inset-0 bg-gradient-to-t from-white/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           
           <button
             onClick={handleFavoriteClick}
-            className="absolute top-4 right-4 p-2.5 bg-white/95 backdrop-blur-sm rounded-full shadow-lg transition-all duration-200 hover:bg-white hover:scale-110 hover:shadow-xl"
+            className="absolute top-4 right-4 p-3 bg-white/90 backdrop-blur-md rounded-full transition-all duration-300 hover:bg-white hover:scale-110"
           >
-            <Heart className={`h-4 w-4 transition-colors ${product.isFavorited ? 'text-red-500 fill-current' : 'text-gray-400 hover:text-red-500'}`} />
+            <Heart className={`h-5 w-5 transition-colors ${product.isFavorited ? 'text-red-500 fill-current' : 'text-gray-500 hover:text-red-500'}`} />
           </button>
           
           {/* Status badge */}
           <div className="absolute top-4 left-4">
-            <span className="bg-green-500 text-white text-xs px-3 py-1.5 rounded-full font-semibold shadow-lg backdrop-blur-sm">
+            <span className="bg-gradient-to-r from-green-500 to-green-600 text-white text-xs px-4 py-2 rounded-full font-semibold">
               Available
             </span>
           </div>
           
           {/* Quick view overlay */}
-          <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-            <span className="text-white font-semibold text-sm bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
+          <div className="absolute inset-0 bg-gradient-to-t from-green-600/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <span className="text-white font-bold text-sm bg-white/20 backdrop-blur-md px-6 py-3 rounded-full border border-white/30">
               Quick View
             </span>
           </div>
         </div>
         
-        <div className="p-6">
-          <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 line-clamp-2 group-hover:text-green-600 transition-colors duration-200 leading-tight">
+        <div className="p-6 bg-white">
+          <h3 className="text-xl font-bold text-gray-900 mb-4 line-clamp-2 group-hover:text-green-600 transition-colors duration-300 leading-tight">
             {product.title}
           </h3>
           
           <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center gap-2">
-              <span className="text-2xl sm:text-3xl font-bold text-green-600">
+            <div className="flex items-center gap-3">
+              <span className="text-3xl font-black text-green-600">
                 ${product.price}
               </span>
-              <span className="text-xs text-gray-500 line-through">$99</span>
+              <span className="text-sm text-gray-400 line-through font-medium">$99</span>
             </div>
-            <span className="text-xs text-gray-600 bg-gray-100 px-3 py-1.5 rounded-full capitalize font-semibold">
+            <span className="text-xs text-green-700 bg-green-50 px-4 py-2 rounded-full capitalize font-bold border border-green-200">
               {product.category}
             </span>
           </div>
           
-          <div className="flex items-center justify-between text-sm text-gray-500 mb-5">
-            <span className="flex items-center">
-              <MapPin className="h-4 w-4 mr-2 text-gray-400" />
-              <span className="font-medium">{product.location || 'New York'}</span>
+          <div className="flex items-center justify-between text-sm mb-6">
+            <span className="flex items-center text-gray-600">
+              <MapPin className="h-4 w-4 mr-2 text-green-500" />
+              <span className="font-semibold">{product.location || 'New York'}</span>
             </span>
             {product.rating && (
-              <span className="flex items-center bg-yellow-50 px-2 py-1 rounded-full">
-                <Star className="h-4 w-4 mr-1 fill-current text-yellow-400" />
-                <span className="font-semibold text-yellow-700">{product.rating}</span>
+              <span className="flex items-center bg-yellow-50 px-3 py-1.5 rounded-full border border-yellow-200">
+                <Star className="h-4 w-4 mr-1 fill-current text-yellow-500" />
+                <span className="font-bold text-yellow-700">{product.rating}</span>
               </span>
             )}
           </div>
           
           <div className="flex items-center justify-between pt-4 border-t border-gray-100">
             <div className="flex items-center">
-              <div className="w-8 h-8 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mr-3 shadow-sm">
+              <div className="w-10 h-10 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mr-3">
                 <span className="text-white text-sm font-bold">
                   {(product.owner_username || 'Seller').charAt(0).toUpperCase()}
                 </span>
               </div>
               <div>
-                <span className="text-sm text-gray-600 font-semibold block">
+                <span className="text-sm text-gray-800 font-bold block">
                   {product.owner_username || 'Seller'}
                 </span>
-                <span className="text-xs text-gray-400">Verified Seller</span>
+                <span className="text-xs text-green-600 font-medium">✓ Verified Seller</span>
               </div>
             </div>
             <button 
               onClick={handleContactClick}
-              className="btn-primary btn-sm"
+              className="px-4 py-2.5 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl transition-all duration-300 font-semibold text-sm hover:-translate-y-0.5 flex items-center gap-2"
             >
               <MessageCircle className="h-4 w-4" />
               Contact

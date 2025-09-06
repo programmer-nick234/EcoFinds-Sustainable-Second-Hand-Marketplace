@@ -2,7 +2,7 @@ var R=require("../../chunks/ssr/[turbopack]_runtime.js")("server/app/landing/pag
 R.c("server/chunks/ssr/442d5_80accaae._.js")
 R.c("server/chunks/ssr/[root-of-the-server]__e8a2741f._.js")
 R.c("server/chunks/ssr/ecofinds_frontend_src_app_be5a0d70._.js")
-R.c("server/chunks/ssr/[root-of-the-server]__74da5903._.js")
+R.c("server/chunks/ssr/[root-of-the-server]__77fefbf0._.js")
 R.c("server/chunks/ssr/442d5_next_dist_client_components_24fc950a._.js")
 R.c("server/chunks/ssr/442d5_next_dist_client_components_builtin_forbidden_616d69b5.js")
 R.c("server/chunks/ssr/442d5_next_dist_client_components_builtin_unauthorized_bac93117.js")

@@ -2,16 +2,19 @@
   "devFiles": [],
   "ampDevFiles": [],
   "polyfillFiles": [
-    "static/chunks/a6dad97d9634a72d.js"
+    "static/chunks/442d5_next_dist_build_polyfills_polyfill-nomodule.js"
   ],
   "lowPriorityFiles": [],
   "rootMainFiles": [
-    "static/chunks/9ac4ee9b01b7bcec.js",
-    "static/chunks/a292d7abcbfa577a.js",
-    "static/chunks/eaceea136f582608.js",
-    "static/chunks/c8dd297278a541e1.js",
-    "static/chunks/4c152acd1cf38cad.js",
-    "static/chunks/turbopack-506a48eeb6dc172a.js"
+    "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_e6ce5e10._.js",
+    "static/chunks/442d5_next_dist_compiled_react-dom_b5f296a3._.js",
+    "static/chunks/442d5_next_dist_compiled_next-devtools_index_9ffd2e64.js",
+    "static/chunks/442d5_next_dist_compiled_0e1ebae5._.js",
+    "static/chunks/442d5_next_dist_client_2ad63102._.js",
+    "static/chunks/442d5_next_dist_c3e6b734._.js",
+    "static/chunks/442d5_@swc_helpers_cjs_35e047f2._.js",
+    "static/chunks/ecofinds_frontend_a0ff3932._.js",
+    "static/chunks/turbopack-ecofinds_frontend_be29055b._.js"
   ],
   "pages": {},
   "ampFirstPages": []
