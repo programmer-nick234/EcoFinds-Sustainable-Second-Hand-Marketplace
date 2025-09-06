@@ -1,0 +1,18 @@
+{
+  "pages": {
+    "/cart/page": [
+      "static/chunks/99653107a9d55c9e.js",
+      "static/chunks/3da0e48d52353bef.js",
+      "static/chunks/6e8a9a9cb75213f3.css",
+      "static/chunks/2274e79bc0c3662c.js",
+      "static/chunks/b2f1258b0bbebbd4.js",
+      "static/chunks/791d3ea1b4c9f67b.js",
+      "static/chunks/9ac4ee9b01b7bcec.js",
+      "static/chunks/a292d7abcbfa577a.js",
+      "static/chunks/eaceea136f582608.js",
+      "static/chunks/c8dd297278a541e1.js",
+      "static/chunks/4c152acd1cf38cad.js",
+      "static/chunks/turbopack-506a48eeb6dc172a.js"
+    ]
+  }
+}

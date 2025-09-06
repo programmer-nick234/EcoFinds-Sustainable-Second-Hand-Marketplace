@@ -1,0 +1,14 @@
+{
+  "/dashboard/page": "app/dashboard/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/landing/page": "app/landing/page.js",
+  "/login/page": "app/login/page.js",
+  "/messages/page": "app/messages/page.js",
+  "/page": "app/page.js",
+  "/products/[id]/edit/page": "app/products/[id]/edit/page.js",
+  "/products/[id]/page": "app/products/[id]/page.js",
+  "/products/create/page": "app/products/create/page.js",
+  "/products/my-products/page": "app/products/my-products/page.js",
+  "/products/page": "app/products/page.js",
+  "/register/page": "app/register/page.js"
+}

@@ -1,0 +1,25 @@
+{
+  "pages": {
+    "/products/page": [
+      "static/chunks/442d5_next_dist_e219eecb._.js",
+      "static/chunks/ecofinds_frontend_src_app_favicon_ico_mjs_7c539f90._.js",
+      "static/chunks/[root-of-the-server]__94426876._.css",
+      "static/chunks/442d5_0b6c08b9._.js",
+      "static/chunks/ecofinds_frontend_src_e7ea5d3b._.js",
+      "static/chunks/ecofinds_frontend_src_app_layout_tsx_a63eba27._.js",
+      "static/chunks/442d5_next_dist_client_components_builtin_global-error_a4e0dd2d.js",
+      "static/chunks/ecofinds_frontend_src_0c979b21._.js",
+      "static/chunks/442d5_a0a5879c._.js",
+      "static/chunks/ecofinds_frontend_src_app_products_page_tsx_a4e0dd2d._.js",
+      "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_e6ce5e10._.js",
+      "static/chunks/442d5_next_dist_compiled_react-dom_b5f296a3._.js",
+      "static/chunks/442d5_next_dist_compiled_next-devtools_index_9ffd2e64.js",
+      "static/chunks/442d5_next_dist_compiled_0e1ebae5._.js",
+      "static/chunks/442d5_next_dist_client_2ad63102._.js",
+      "static/chunks/442d5_next_dist_c3e6b734._.js",
+      "static/chunks/442d5_@swc_helpers_cjs_35e047f2._.js",
+      "static/chunks/ecofinds_frontend_a0ff3932._.js",
+      "static/chunks/turbopack-ecofinds_frontend_be29055b._.js"
+    ]
+  }
+}

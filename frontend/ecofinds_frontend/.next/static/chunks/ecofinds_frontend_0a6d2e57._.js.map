@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///E:/ODOO/hackathon_2.0/frontend/ecofinds_frontend/src/app/page.tsx"],"sourcesContent":["'use client';\n\nimport { useEffect } from 'react';\nimport { useRouter } from 'next/navigation';\n\nexport default function Home() {\n  const router = useRouter();\n\n  useEffect(() => {\n    router.push('/landing');\n  }, [router]);\n\n  return (\n    <div className=\"min-h-screen flex items-center justify-center\">\n      <div className=\"text-center\">\n        <div className=\"animate-spin rounded-full h-32 w-32 border-b-2 border-green-600 mx-auto\"></div>\n        <p className=\"mt-4 text-gray-600\">Redirecting to EcoFinds...</p>\n      </div>\n    </div>\n  );\n}\n"],"names":[],"mappings":";;;;;AAEA;AACA;;;AAHA;;;AAKe,SAAS;;IACtB,MAAM,SAAS,IAAA,uKAAS;IAExB,IAAA,+LAAS;0BAAC;YACR,OAAO,IAAI,CAAC;QACd;yBAAG;QAAC;KAAO;IAEX,qBACE,kNAAC;QAAI,WAAU;kBACb,cAAA,kNAAC;YAAI,WAAU;;8BACb,kNAAC;oBAAI,WAAU;;;;;;8BACf,kNAAC;oBAAE,WAAU;8BAAqB;;;;;;;;;;;;;;;;;AAI1C;GAfwB;;QACP,uKAAS;;;KADF","debugId":null}},
+    {"offset": {"line": 72, "column": 0}, "map": {"version":3,"sources":["file:///E:/ODOO/hackathon_2.0/frontend/ecofinds_frontend/node_modules/next/navigation.js"],"sourcesContent":["module.exports = require('./dist/client/components/navigation')\n"],"names":[],"mappings":"AAAA,OAAO,OAAO","ignoreList":[0],"debugId":null}}]
+}
