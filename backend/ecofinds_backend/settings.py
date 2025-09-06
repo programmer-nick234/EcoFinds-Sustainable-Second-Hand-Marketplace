@@ -139,6 +139,9 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 20
 }
 
+# Frontend URL for password reset links
+FRONTEND_URL = 'http://localhost:3000'
+
 # CORS settings
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",

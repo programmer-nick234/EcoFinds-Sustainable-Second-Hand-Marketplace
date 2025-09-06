@@ -62,20 +62,16 @@ export default function ProductsPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        console.log('Fetching products and categories...');
         const [productsData, categoriesData] = await Promise.all([
           productsService.getProducts(),
           productsService.getCategories()
         ]);
-        console.log('Products data:', productsData);
-        console.log('Categories data:', categoriesData);
         setProducts(productsData);
         setFilteredProducts(productsData);
         setCategories(categoriesData);
       } catch (err: any) {
         setError('Failed to load products');
         console.error('Error fetching data:', err);
-        console.error('Error details:', err.response?.data);
       } finally {
         setLoading(false);
       }
