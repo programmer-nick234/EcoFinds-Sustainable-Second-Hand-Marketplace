@@ -32,34 +32,32 @@ export default function CategoriesGrid({
   viewAllLink = "/categories"
 }: CategoriesGridProps) {
   return (
-    <div className="space-y-4">
+    <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h3 className="text-lg sm:text-xl font-semibold text-gray-900">{title}</h3>
+        <h3 className="text-xl sm:text-2xl font-bold text-gray-900">{title}</h3>
         {showViewAll && (
-          <Link href={viewAllLink} className="text-green-600 text-sm font-medium hover:text-green-700">
-            View All
+          <Link href={viewAllLink} className="text-green-600 text-sm font-semibold hover:text-green-700 hover:underline transition-all duration-200">
+            View All →
           </Link>
         )}
       </div>
       
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6">
         {categories.map((category, index) => (
           <Link
             key={index}
             href={category.link || `/products?category=${category.name.toLowerCase()}`}
-            className="bg-white p-3 sm:p-4 rounded-xl border border-gray-200 hover:shadow-md transition-all duration-200 hover:border-green-300 group"
+            className="card hover-lift group text-center p-4 sm:p-6"
           >
-            <div className="text-center">
-              <div className="text-2xl sm:text-3xl mb-2 group-hover:scale-110 transition-transform duration-200">
-                {category.icon}
-              </div>
-              <h4 className="font-medium text-gray-900 text-sm sm:text-base mb-1">
-                {category.name}
-              </h4>
-              <p className="text-xs sm:text-sm text-gray-500">
-                {category.count} items
-              </p>
+            <div className="text-3xl sm:text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">
+              {category.icon}
             </div>
+            <h4 className="font-semibold text-gray-900 text-sm sm:text-base mb-2 group-hover:text-green-600 transition-colors duration-200">
+              {category.name}
+            </h4>
+            <p className="text-xs sm:text-sm text-gray-500 font-medium">
+              {category.count} items
+            </p>
           </Link>
         ))}
       </div>
