@@ -13,7 +13,103 @@ html {
 /* Ensure text is always visible */
 body, html {
   color: #111827 !important;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+  font-weight: 400 !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Force text visibility on all elements */
+*, *::before, *::after {
+  color: inherit !important;
+}
+
+/* Specific text elements */
+h1, h2, h3, h4, h5, h6, p, span, div, a, button, input, textarea, select, label {
+  color: #111827 !important;
+  font-family: inherit !important;
+}
+
+/* Ensure all text is visible */
+.text-gray-900, .text-gray-800, .text-gray-700, .text-gray-600, .text-gray-500 {
+  color: #111827 !important;
+}
+
+/* Override any transparent or invisible text */
+[style*="color: transparent"], [style*="color: rgba(0,0,0,0)"], [style*="opacity: 0"] {
+  color: #111827 !important;
+  opacity: 1 !important;
+}
+
+/* Comprehensive font visibility fixes */
+.font-sans, .font-serif, .font-mono {
+  /* Font family handled by Tailwind classes */
+}
+
+/* Force visibility on all text classes */
+.text-black { color: #000000 !important; }
+.text-white { color: #ffffff !important; }
+.text-transparent { color: #111827 !important; }
+
+/* Ensure all components have visible text */
+.card, .card-elevated, .card-hover {
+  color: #111827 !important;
+}
+
+/* Fix any potential font loading issues */
+@font-face {
+  font-family: 'Geist';
+  src: local('Geist'), local('Geist-Regular');
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Targeted text visibility fixes - avoid universal selector to prevent hydration issues */
+body, html, main, section, div, p, span, h1, h2, h3, h4, h5, h6, a, button, input, textarea, select, label {
+  color: #111827 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Allow only specific colored text to override */
+.text-white {
+  color: #ffffff !important;
+}
+
+/* Force white text on dark backgrounds */
+.bg-gray-900, .bg-gray-800, .bg-gray-700, .bg-gray-600,
+.bg-slate-900, .bg-slate-800, .bg-slate-700, .bg-slate-600,
+.bg-zinc-900, .bg-zinc-800, .bg-zinc-700, .bg-zinc-600,
+.bg-neutral-900, .bg-neutral-800, .bg-neutral-700, .bg-neutral-600,
+.bg-stone-900, .bg-stone-800, .bg-stone-700, .bg-stone-600,
+.bg-blue-900, .bg-blue-800, .bg-blue-700, .bg-blue-600,
+.bg-green-900, .bg-green-800, .bg-green-700, .bg-green-600 {
+  color: #ffffff !important;
+}
+
+.bg-gray-900 *, .bg-gray-800 *, .bg-gray-700 *, .bg-gray-600 *,
+.bg-slate-900 *, .bg-slate-800 *, .bg-slate-700 *, .bg-slate-600 *,
+.bg-zinc-900 *, .bg-zinc-800 *, .bg-zinc-700 *, .bg-zinc-600 *,
+.bg-neutral-900 *, .bg-neutral-800 *, .bg-neutral-700 *, .bg-neutral-600 *,
+.bg-stone-900 *, .bg-stone-800 *, .bg-stone-700 *, .bg-stone-600 *,
+.bg-blue-900 *, .bg-blue-800 *, .bg-blue-700 *, .bg-blue-600 *,
+.bg-green-900 *, .bg-green-800 *, .bg-green-700 *, .bg-green-600 * {
+  color: #ffffff !important;
+}
+
+.text-green-600, .text-green-500, .text-green-400,
+.text-blue-600, .text-blue-500, .text-blue-400,
+.text-red-600, .text-red-500, .text-red-400,
+.text-yellow-600, .text-yellow-500, .text-yellow-400 {
+  /* These will override the universal rule above */
+}
+
+/* Allow specific overrides for colored text */
+.text-green-600, .text-green-500, .text-green-400,
+.text-blue-600, .text-blue-500, .text-blue-400,
+.text-red-600, .text-red-500, .text-red-400,
+.text-yellow-600, .text-yellow-500, .text-yellow-400 {
+  /* Keep colored text as is */
 }
 
 :root {
@@ -138,7 +234,6 @@ body, html {
 body {
   background: var(--background);
   color: var(--foreground) !important;
-  font-family: var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
   font-feature-settings: "rlig" 1, "calt" 1, "kern" 1;
   line-height: 1.7;
   letter-spacing: -0.01em;
@@ -216,7 +311,6 @@ p, span, div, h1, h2, h3, h4, h5, h6 {
 /* Ensure all text elements are visible */
 h1, h2, h3, h4, h5, h6, p, span, div, a, button {
   color: #111827 !important;
-  font-family: var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
 }
 
 /* Specific text color overrides for better visibility */
@@ -251,6 +345,23 @@ input, textarea, select {
 input:focus, textarea:focus, select:focus {
   border-color: #059669 !important;
   box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1) !important;
+}
+
+/* Specific styling for select elements in forms */
+select, select option {
+  color: #111827 !important;
+  background-color: #ffffff !important;
+}
+
+/* Product form specific select styling */
+.product-form select {
+  color: #111827 !important;
+  background-color: #ffffff !important;
+}
+
+.product-form select option {
+  color: #111827 !important;
+  background-color: #ffffff !important;
 }
 
 /* Modern Design System Utilities */

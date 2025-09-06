@@ -1,0 +1,9 @@
+{
+  "username": "testuser",
+  "email": "test@example.com",
+  "first_name": "Test",
+  "last_name": "User",
+  "password": "testpass123",
+  "password_confirm": "testpass123",
+  "terms_accepted": true
+}

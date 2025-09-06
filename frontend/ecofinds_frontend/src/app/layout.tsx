@@ -32,12 +32,9 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      </head>
+        </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased font-sans`}
-        style={{
-          fontFamily: 'var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif'
-        }}
       >
         <AuthProvider>
           {children}

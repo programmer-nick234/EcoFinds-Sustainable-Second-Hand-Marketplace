@@ -79,7 +79,12 @@ export default function Footer() {
 
           {/* Categories */}
           <div className="space-y-6">
-            <h4 className="text-xl font-bold text-white">Categories</h4>
+            <div className="flex items-center justify-between">
+              <h4 className="text-xl font-bold text-white">Categories</h4>
+              <Link href="/categories" className="text-green-400 hover:text-green-300 text-sm font-medium transition-colors">
+                View All →
+              </Link>
+            </div>
             <ul className="space-y-3">
               <li>
                 <Link href="/products?category=electronics" className="text-gray-300 hover:text-green-400 transition-colors duration-200 flex items-center group">

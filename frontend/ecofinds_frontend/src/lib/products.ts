@@ -200,7 +200,7 @@ export const productsService = {
 
   async getCategories(): Promise<Category[]> {
     try {
-      const response = await api.get('/products/categories/');
+      const response = await api.get('/products/categories/list/');
       return response.data;
     } catch (error: unknown) {
       const errorMessage = error && typeof error === 'object' && 'response' in error 

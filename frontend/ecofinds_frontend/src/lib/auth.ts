@@ -48,9 +48,9 @@ export interface ChangePasswordData {
 }
 
 export interface AuthResponse {
-  token: string;
+  access: string;
+  refresh: string;
   user: User;
-  refresh_token?: string;
 }
 
 export interface AuthError {
@@ -62,15 +62,13 @@ export interface AuthError {
 export const authService = {
   async login(data: LoginData): Promise<AuthResponse> {
     try {
-      const response = await api.post('/auth/login/', data);
-      const { token, user, refresh_token } = response.data;
+      const response = await api.post('/accounts/login/', data);
+      const { access, refresh, user } = response.data;
       
-      // Store token and user in localStorage
-      localStorage.setItem('token', token);
+      // Store tokens and user in localStorage
+      localStorage.setItem('access_token', access);
+      localStorage.setItem('refresh_token', refresh);
       localStorage.setItem('user', JSON.stringify(user));
-      if (refresh_token) {
-        localStorage.setItem('refresh_token', refresh_token);
-      }
       
       return response.data;
     } catch (error: unknown) {
@@ -80,15 +78,13 @@ export const authService = {
 
   async register(data: RegisterData): Promise<AuthResponse> {
     try {
-      const response = await api.post('/auth/register/', data);
-      const { token, user, refresh_token } = response.data;
+      const response = await api.post('/accounts/register/', data);
+      const { access, refresh, user } = response.data;
       
-      // Store token and user in localStorage
-      localStorage.setItem('token', token);
+      // Store tokens and user in localStorage
+      localStorage.setItem('access_token', access);
+      localStorage.setItem('refresh_token', refresh);
       localStorage.setItem('user', JSON.stringify(user));
-      if (refresh_token) {
-        localStorage.setItem('refresh_token', refresh_token);
-      }
       
       return response.data;
     } catch (error: unknown) {
@@ -98,19 +94,22 @@ export const authService = {
 
   async logout(): Promise<void> {
     try {
-      await api.post('/auth/logout/');
+      const refreshToken = localStorage.getItem('refresh_token');
+      if (refreshToken) {
+        await api.post('/accounts/logout/', { refresh: refreshToken });
+      }
     } catch (error) {
       console.error('Logout error:', error);
     } finally {
-      localStorage.removeItem('token');
-      localStorage.removeItem('user');
+      localStorage.removeItem('access_token');
       localStorage.removeItem('refresh_token');
+      localStorage.removeItem('user');
     }
   },
 
   async getProfile(): Promise<User> {
     try {
-      const response = await api.get('/auth/profile/');
+      const response = await api.get('/accounts/profile/');
       const user = response.data;
       localStorage.setItem('user', JSON.stringify(user));
       return user;
@@ -121,7 +120,7 @@ export const authService = {
 
   async updateProfile(data: Partial<User>): Promise<User> {
     try {
-      const response = await api.put('/auth/profile/update/', data);
+      const response = await api.put('/accounts/profile/update/', data);
       const user = response.data;
       localStorage.setItem('user', JSON.stringify(user));
       return user;
@@ -132,7 +131,7 @@ export const authService = {
 
   async changePassword(data: ChangePasswordData): Promise<void> {
     try {
-      await api.post('/auth/change-password/', data);
+      await api.post('/accounts/change-password/', data);
     } catch (error: unknown) {
       throw this.handleAuthError(error);
     }
@@ -140,7 +139,7 @@ export const authService = {
 
   async requestPasswordReset(data: PasswordResetData): Promise<void> {
     try {
-      await api.post('/auth/password-reset/', data);
+      await api.post('/accounts/password-reset/', data);
     } catch (error: unknown) {
       throw this.handleAuthError(error);
     }
@@ -148,7 +147,7 @@ export const authService = {
 
   async confirmPasswordReset(data: PasswordResetConfirmData): Promise<void> {
     try {
-      await api.post('/auth/password-reset-confirm/', data);
+      await api.post('/accounts/password-reset-confirm/', data);
     } catch (error: unknown) {
       throw this.handleAuthError(error);
     }
@@ -161,10 +160,10 @@ export const authService = {
         throw new Error('No refresh token available');
       }
       
-      const response = await api.post('/auth/refresh/', { refresh: refreshToken });
+      const response = await api.post('/accounts/token/refresh/', { refresh: refreshToken });
       const { access } = response.data;
       
-      localStorage.setItem('token', access);
+      localStorage.setItem('access_token', access);
       return access;
     } catch (error: unknown) {
       this.logout();
@@ -183,7 +182,7 @@ export const authService = {
   },
 
   getToken(): string | null {
-    return localStorage.getItem('token');
+    return localStorage.getItem('access_token');
   },
 
   isAuthenticated(): boolean {

@@ -24,7 +24,7 @@ export default function Header({ cartCount = 0, showMenu = false, onMenuToggle }
   return (
     <>
       {/* Header */}
-      <header className="bg-white/95 backdrop-blur-2xl border-b border-gray-200/50 sticky top-0 z-50">
+      <header className="bg-white shadow-lg border-b border-gray-200 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             {/* Mobile Menu Button */}
@@ -50,43 +50,31 @@ export default function Header({ cartCount = 0, showMenu = false, onMenuToggle }
                   EcoFinds
                 </h1>
                 <div className="flex items-center gap-1">
-                  <span className="text-sm text-green-600 font-semibold">Sustainable</span>
-                  <span className="text-sm text-gray-500">Marketplace</span>
+                  <span className="text-sm text-green-600 font-bold">Sustainable</span>
+                  <span className="text-sm text-gray-700 font-medium">Marketplace</span>
                   <div className="w-1 h-1 bg-green-500 rounded-full animate-pulse"></div>
                 </div>
               </div>
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-1">
-              <Link href="/landing" className="px-5 py-3 text-gray-700 hover:text-green-600 hover:bg-green-50/90 rounded-2xl transition-all duration-300 font-semibold text-sm relative group">
+            <nav className="hidden lg:flex items-center space-x-2">
+              <Link href="/landing" className="px-6 py-3 text-gray-800 hover:text-green-600 hover:bg-green-50 rounded-2xl transition-all duration-300 font-bold text-sm relative group">
                 <span className="relative z-10">Home</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-green-50 to-green-100 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-gradient-to-r from-green-500 to-green-600 rounded-full transition-all duration-300 group-hover:w-8"></div>
               </Link>
-              <Link href="/products" className="px-5 py-3 text-gray-700 hover:text-green-600 hover:bg-green-50/90 rounded-2xl transition-all duration-300 font-semibold text-sm relative group">
+              <Link href="/products" className="px-6 py-3 text-gray-800 hover:text-green-600 hover:bg-green-50 rounded-2xl transition-all duration-300 font-bold text-sm relative group">
                 <span className="relative z-10">Products</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-green-50 to-green-100 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-gradient-to-r from-green-500 to-green-600 rounded-full transition-all duration-300 group-hover:w-8"></div>
               </Link>
-              {isAuthenticated && (
-                <Link href="/products/my-products" className="px-5 py-3 text-gray-700 hover:text-green-600 hover:bg-green-50/90 rounded-2xl transition-all duration-300 font-semibold text-sm relative group">
-                  <span className="relative z-10">My Products</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-green-50 to-green-100 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-gradient-to-r from-green-500 to-green-600 rounded-full transition-all duration-300 group-hover:w-8"></div>
-                </Link>
-              )}
-              <Link href="/products/create" className="px-5 py-3 text-gray-700 hover:text-green-600 hover:bg-green-50/90 rounded-2xl transition-all duration-300 font-semibold text-sm relative group">
-                <span className="relative z-10">Sell</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-green-50 to-green-100 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-gradient-to-r from-green-500 to-green-600 rounded-full transition-all duration-300 group-hover:w-8"></div>
-              </Link>
-              <Link href="/about" className="px-5 py-3 text-gray-700 hover:text-green-600 hover:bg-green-50/90 rounded-2xl transition-all duration-300 font-semibold text-sm relative group">
+              <Link href="/about" className="px-6 py-3 text-gray-800 hover:text-green-600 hover:bg-green-50 rounded-2xl transition-all duration-300 font-bold text-sm relative group">
                 <span className="relative z-10">About</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-green-50 to-green-100 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-gradient-to-r from-green-500 to-green-600 rounded-full transition-all duration-300 group-hover:w-8"></div>
               </Link>
-              <Link href="/contact" className="px-5 py-3 text-gray-700 hover:text-green-600 hover:bg-green-50/90 rounded-2xl transition-all duration-300 font-semibold text-sm relative group">
+              <Link href="/contact" className="px-6 py-3 text-gray-800 hover:text-green-600 hover:bg-green-50 rounded-2xl transition-all duration-300 font-bold text-sm relative group">
                 <span className="relative z-10">Contact</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-green-50 to-green-100 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-gradient-to-r from-green-500 to-green-600 rounded-full transition-all duration-300 group-hover:w-8"></div>
@@ -95,30 +83,28 @@ export default function Header({ cartCount = 0, showMenu = false, onMenuToggle }
 
             {/* Cart and Profile */}
             <div className="flex items-center space-x-4">
-              {isAuthenticated && (
-                <Link href="/cart" className="relative p-3 rounded-2xl hover:bg-green-50/80 transition-all duration-300 group">
-                  <div className="relative">
-                    <ShoppingCart className="h-6 w-6 text-gray-700 group-hover:text-green-600 transition-colors" />
-                    <div className="absolute -inset-1 bg-green-100 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  </div>
-                  {cartCount > 0 && (
-                    <span className="absolute -top-1 -right-1 bg-gradient-to-r from-red-500 to-red-600 text-white text-xs rounded-full h-6 w-6 flex items-center justify-center font-bold animate-bounce">
-                      {cartCount}
-                    </span>
-                  )}
-                </Link>
-              )}
+              <Link href="/cart" className="relative p-3 rounded-2xl hover:bg-green-50 transition-all duration-300 group">
+                <div className="relative">
+                  <ShoppingCart className="h-6 w-6 text-gray-900 group-hover:text-green-600 transition-colors font-bold" />
+                  <div className="absolute -inset-1 bg-green-100 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                {isAuthenticated && cartCount > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-gradient-to-r from-red-500 to-red-600 text-white text-xs rounded-full h-6 w-6 flex items-center justify-center font-bold animate-bounce shadow-lg">
+                    {cartCount}
+                  </span>
+                )}
+              </Link>
               
               {isAuthenticated ? (
                 <div className="flex items-center space-x-4">
                   <div className="hidden sm:block text-right">
-                    <span className="text-sm text-gray-800 font-bold block">
+                    <span className="text-sm text-gray-900 font-bold block">
                       {user?.first_name || user?.username}
                     </span>
-                    <span className="text-xs text-green-600 font-medium">Welcome back</span>
+                    <span className="text-xs text-green-600 font-bold">Welcome back</span>
                   </div>
-                  <Link href="/profile" className="p-2 rounded-2xl hover:bg-green-50/80 transition-all duration-300 group">
-                    <div className="w-12 h-12 bg-gradient-to-br from-green-400 via-green-500 to-green-600 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 relative overflow-hidden">
+                  <Link href="/profile" className="p-2 rounded-2xl hover:bg-green-50 transition-all duration-300 group">
+                    <div className="w-12 h-12 bg-gradient-to-br from-green-400 via-green-500 to-green-600 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 relative overflow-hidden shadow-lg">
                       <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       <User className="h-6 w-6 text-white relative z-10" />
                     </div>
@@ -128,20 +114,20 @@ export default function Header({ cartCount = 0, showMenu = false, onMenuToggle }
                     className="p-3 rounded-2xl hover:bg-red-50 transition-all duration-300 group"
                     title="Logout"
                   >
-                    <LogOut className="h-5 w-5 text-gray-600 group-hover:text-red-600 transition-colors" />
+                    <LogOut className="h-5 w-5 text-gray-800 group-hover:text-red-600 transition-colors" />
                   </button>
                 </div>
               ) : (
                 <div className="flex items-center space-x-3">
                   <Link
                     href="/login"
-                    className="px-6 py-2.5 text-gray-700 hover:text-green-600 hover:bg-green-50/80 rounded-2xl transition-all duration-300 font-semibold text-sm border border-gray-200 hover:border-green-300"
+                    className="px-6 py-2.5 text-gray-800 hover:text-green-600 hover:bg-green-50 rounded-2xl transition-all duration-300 font-bold text-sm border border-gray-200 hover:border-green-300"
                   >
                     Login
                   </Link>
                   <Link
                     href="/register"
-                    className="px-6 py-2.5 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-2xl transition-all duration-300 font-semibold text-sm hover:-translate-y-0.5 relative overflow-hidden group"
+                    className="px-6 py-2.5 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-2xl transition-all duration-300 font-bold text-sm hover:-translate-y-0.5 relative overflow-hidden group shadow-lg"
                   >
                     <span className="relative z-10">Register</span>
                     <div className="absolute inset-0 bg-gradient-to-r from-green-600 to-green-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
