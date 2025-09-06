@@ -28,25 +28,9 @@ This is the frontend application for EcoFinds, built with Next.js 15, TypeScript
 
 The application will be available at `http://localhost:3000`
 
-## 🔧 Environment Variables
+## 🔧 Configuration
 
-The application requires the following environment variables:
-
-| Variable | Description | Default |
-|----------|-------------|---------|
-| `NEXT_PUBLIC_API_URL` | Backend API URL | `http://localhost:8000/api` |
-
-### Setting up Environment Variables
-
-1. Copy `.env.example` to `.env.local`:
-   ```bash
-   cp .env.example .env.local
-   ```
-
-2. Edit `.env.local` and update the values as needed:
-   ```env
-   NEXT_PUBLIC_API_URL=http://localhost:8000/api
-   ```
+The application is configured to connect to the backend API at `http://localhost:8000/api` by default. This URL is hardcoded in the API configuration and does not require any environment variables.
 
 ## 🛠️ Available Scripts
 
@@ -94,13 +78,11 @@ The application uses:
 
 1. **API Connection Errors**:
    - Ensure the backend server is running on `http://localhost:8000`
-   - Check that `NEXT_PUBLIC_API_URL` in `.env.local` matches your backend URL
    - Verify CORS settings in the backend
 
-2. **Environment Variables Not Loading**:
-   - Make sure `.env.local` exists in the project root
-   - Restart the development server after changing environment variables
-   - Check that variable names start with `NEXT_PUBLIC_` for client-side access
+2. **API Configuration Issues**:
+   - The API URL is hardcoded to `http://localhost:8000/api`
+   - If you need to change the backend URL, edit `src/lib/api.ts`
 
 3. **Build Errors**:
    - Clear the `.next` directory: `rm -rf .next`
@@ -111,8 +93,7 @@ The application uses:
 If you encounter issues:
 1. Check the browser console for errors
 2. Verify the backend server is running
-3. Check the environment variables are set correctly
-4. Review the main project README.md for full setup instructions
+3. Review the main project README.md for full setup instructions
 
 ## 📝 Development Notes
 

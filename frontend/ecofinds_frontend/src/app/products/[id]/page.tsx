@@ -1,15 +1,15 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, use } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
 import { productsService, Product } from '@/lib/products';
 import { ArrowLeft, MessageCircle, Heart, Share2, User, Calendar, DollarSign } from 'lucide-react';
 
 interface ProductDetailPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 export default function ProductDetailPage({ params }: ProductDetailPageProps) {
@@ -18,11 +18,14 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
   const [error, setError] = useState('');
   const { user, isAuthenticated } = useAuth();
   const router = useRouter();
+  
+  // Unwrap the params Promise using React.use()
+  const resolvedParams = use(params);
 
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const data = await productsService.getProduct(parseInt(params.id));
+        const data = await productsService.getProduct(parseInt(resolvedParams.id));
         setProduct(data);
       } catch (err: any) {
         setError('Product not found');
@@ -33,7 +36,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
     };
 
     fetchProduct();
-  }, [params.id]);
+  }, [resolvedParams.id]);
 
   const handleContactSeller = () => {
     if (!isAuthenticated) {
