@@ -14,8 +14,8 @@ export default function BottomNavigation({ className = '' }: BottomNavigationPro
   const navItems = [
     { href: '/landing', icon: Home, label: 'Home' },
     { href: '/products', icon: ShoppingBag, label: 'Products' },
+    { href: '/products/my-products', icon: Heart, label: 'My Items' },
     { href: '/products/create', icon: Plus, label: 'Sell' },
-    { href: '/favorites', icon: Heart, label: 'Favorites' },
     { href: '/messages', icon: MessageCircle, label: 'Messages' }
   ];
 

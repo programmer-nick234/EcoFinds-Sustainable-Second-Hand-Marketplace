@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import { Search, Filter, SortAsc, Grid3X3, X } from 'lucide-react';
 
 interface SearchAndFiltersProps {

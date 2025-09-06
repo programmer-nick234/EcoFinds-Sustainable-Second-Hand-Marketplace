@@ -104,3 +104,74 @@ def product_categories(request):
     """Get all available product categories"""
     categories = [{'value': choice[0], 'label': choice[1]} for choice in Product.CATEGORY_CHOICES]
     return Response(categories)
+
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def toggle_product_availability(request, pk):
+    """Toggle product availability (soft delete/restore)"""
+    try:
+        product = get_object_or_404(Product, pk=pk, owner=request.user)
+        product.is_available = not product.is_available
+        product.save()
+        
+        status_text = "available" if product.is_available else "unavailable"
+        return Response({
+            'message': f'Product marked as {status_text}',
+            'is_available': product.is_available
+        }, status=status.HTTP_200_OK)
+    except Product.DoesNotExist:
+        return Response({'error': 'Product not found or you do not have permission'}, status=status.HTTP_404_NOT_FOUND)
+
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def search_products(request):
+    """Advanced product search with filters"""
+    queryset = Product.objects.filter(is_available=True)
+    
+    # Search query
+    search = request.query_params.get('q', '')
+    if search:
+        queryset = queryset.filter(
+            Q(title__icontains=search) | 
+            Q(description__icontains=search) |
+            Q(category__icontains=search)
+        )
+    
+    # Category filter
+    category = request.query_params.get('category', '')
+    if category:
+        queryset = queryset.filter(category=category)
+    
+    # Price range
+    min_price = request.query_params.get('min_price')
+    max_price = request.query_params.get('max_price')
+    if min_price:
+        queryset = queryset.filter(price__gte=min_price)
+    if max_price:
+        queryset = queryset.filter(price__lte=max_price)
+    
+    # Sort options
+    sort_by = request.query_params.get('sort', '-created_at')
+    valid_sorts = ['price', '-price', 'title', '-title', 'created_at', '-created_at']
+    if sort_by in valid_sorts:
+        queryset = queryset.order_by(sort_by)
+    
+    # Pagination
+    page_size = int(request.query_params.get('page_size', 20))
+    page = int(request.query_params.get('page', 1))
+    
+    start = (page - 1) * page_size
+    end = start + page_size
+    
+    products = queryset[start:end]
+    serializer = ProductSerializer(products, many=True)
+    
+    return Response({
+        'results': serializer.data,
+        'count': queryset.count(),
+        'page': page,
+        'page_size': page_size,
+        'total_pages': (queryset.count() + page_size - 1) // page_size
+    })

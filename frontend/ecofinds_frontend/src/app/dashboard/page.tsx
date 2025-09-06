@@ -24,8 +24,9 @@ export default function DashboardPage() {
       try {
         const data = await productsService.getUserProducts();
         setProducts(data);
-      } catch (err: any) {
-        setError('Failed to load your products');
+      } catch (err: unknown) {
+        const errorMessage = err instanceof Error ? err.message : 'Failed to load your products';
+        setError(errorMessage);
         console.error('Error fetching user products:', err);
       } finally {
         setLoading(false);
@@ -44,8 +45,9 @@ export default function DashboardPage() {
     try {
       await productsService.deleteProduct(productId);
       setProducts(products.filter(p => p.id !== productId));
-    } catch (err: any) {
-      setError('Failed to delete product');
+    } catch (err: unknown) {
+      const errorMessage = err instanceof Error ? err.message : 'Failed to delete product';
+      setError(errorMessage);
       console.error('Error deleting product:', err);
     } finally {
       setDeleteLoading(null);

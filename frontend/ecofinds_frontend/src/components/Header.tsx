@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
 import { Menu, ShoppingCart, User, X, LogOut } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
@@ -52,6 +51,11 @@ export default function Header({ cartCount = 0, showMenu = false, onMenuToggle }
               <Link href="/products" className="text-gray-700 hover:text-green-600 transition-colors">
                 Products
               </Link>
+              {isAuthenticated && (
+                <Link href="/products/my-products" className="text-gray-700 hover:text-green-600 transition-colors">
+                  My Products
+                </Link>
+              )}
               <Link href="/products/create" className="text-gray-700 hover:text-green-600 transition-colors">
                 Sell
               </Link>

@@ -40,14 +40,15 @@ export default function LoginPage() {
     try {
       await login(data.username, data.password);
       router.push('/landing');
-    } catch (err: any) {
-      if (err.field) {
-        setFieldError(err.field as keyof LoginFormData, {
+    } catch (err: unknown) {
+      if (err && typeof err === 'object' && 'field' in err) {
+        setFieldError((err as any).field as keyof LoginFormData, {
           type: 'manual',
-          message: err.message
+          message: (err as any).message
         });
       } else {
-        setError(err.message || 'Login failed. Please try again.');
+        const errorMessage = err instanceof Error ? err.message : 'Login failed. Please try again.';
+        setError(errorMessage);
       }
     } finally {
       setIsLoading(false);

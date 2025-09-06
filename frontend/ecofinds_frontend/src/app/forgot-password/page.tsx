@@ -35,14 +35,15 @@ export default function ForgotPasswordPage() {
     try {
       await authService.requestPasswordReset(data);
       setSuccess(true);
-    } catch (err: any) {
-      if (err.field) {
-        setFieldError(err.field as keyof ForgotPasswordFormData, {
+    } catch (err: unknown) {
+      if (err && typeof err === 'object' && 'field' in err) {
+        setFieldError((err as any).field as keyof ForgotPasswordFormData, {
           type: 'manual',
-          message: err.message
+          message: (err as any).message
         });
       } else {
-        setError(err.message || 'Failed to send reset email. Please try again.');
+        const errorMessage = err instanceof Error ? err.message : 'Failed to send reset email. Please try again.';
+        setError(errorMessage);
       }
     } finally {
       setIsLoading(false);

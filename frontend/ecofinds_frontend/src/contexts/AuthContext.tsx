@@ -38,9 +38,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         try {
           const userData = await authService.getProfile();
           setUser(userData);
-        } catch (error) {
+        } catch (error: unknown) {
           console.error('Failed to get user profile:', error);
-          authService.logout();
+          // If token is invalid, clear it and redirect to login
+          if ((error as any).response?.status === 401) {
+            authService.logout();
+          }
         }
       }
       setLoading(false);
@@ -54,8 +57,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       setError(null);
       const response = await authService.login({ username, password });
       setUser(response.user);
-    } catch (err: any) {
-      setError(err.message || 'Login failed');
+    } catch (err: unknown) {
+      const errorMessage = err instanceof Error ? err.message : 'Login failed';
+      setError(errorMessage);
       throw err;
     }
   };
@@ -65,8 +69,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       setError(null);
       const response = await authService.register(data);
       setUser(response.user);
-    } catch (err: any) {
-      setError(err.message || 'Registration failed');
+    } catch (err: unknown) {
+      const errorMessage = err instanceof Error ? err.message : 'Registration failed';
+      setError(errorMessage);
       throw err;
     }
   };
@@ -89,8 +94,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       setError(null);
       const updatedUser = await authService.updateProfile(data);
       setUser(updatedUser);
-    } catch (err: any) {
-      setError(err.message || 'Profile update failed');
+    } catch (err: unknown) {
+      const errorMessage = err instanceof Error ? err.message : 'Profile update failed';
+      setError(errorMessage);
       throw err;
     }
   };
@@ -99,8 +105,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     try {
       setError(null);
       await authService.changePassword(data);
-    } catch (err: any) {
-      setError(err.message || 'Password change failed');
+    } catch (err: unknown) {
+      const errorMessage = err instanceof Error ? err.message : 'Password change failed';
+      setError(errorMessage);
       throw err;
     }
   };

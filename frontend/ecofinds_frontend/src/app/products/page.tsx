@@ -69,8 +69,9 @@ export default function ProductsPage() {
         setProducts(productsData);
         setFilteredProducts(productsData);
         setCategories(categoriesData);
-      } catch (err: any) {
-        setError('Failed to load products');
+      } catch (err: unknown) {
+        const errorMessage = err instanceof Error ? err.message : 'Failed to load products';
+        setError(errorMessage);
         console.error('Error fetching data:', err);
       } finally {
         setLoading(false);

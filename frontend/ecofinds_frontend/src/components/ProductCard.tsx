@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { Heart, MessageCircle, MapPin, Star } from 'lucide-react';
-import { Product as ApiProduct } from '@/lib/products';
+import { Product as ApiProduct, getImageUrl } from '@/lib/products';
 
 interface Product extends ApiProduct {
   location?: string;
@@ -43,9 +43,12 @@ export default function ProductCard({
             <div className="w-24 h-24 sm:w-32 sm:h-32 bg-gray-200 flex items-center justify-center flex-shrink-0">
               {product.image ? (
                 <img
-                  src={product.image}
+                  src={getImageUrl(product.image)}
                   alt={product.title}
                   className="w-full h-full object-cover"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).style.display = 'none';
+                  }}
                 />
               ) : (
                 <span className="text-gray-400 text-2xl">📷</span>
@@ -113,9 +116,12 @@ export default function ProductCard({
         <div className="aspect-w-16 aspect-h-12 bg-gray-200 relative">
           {product.image ? (
             <img
-              src={product.image}
+              src={getImageUrl(product.image)}
               alt={product.title}
               className="w-full h-48 object-cover"
+              onError={(e) => {
+                (e.target as HTMLImageElement).style.display = 'none';
+              }}
             />
           ) : (
             <div className="w-full h-48 bg-gray-200 flex items-center justify-center">

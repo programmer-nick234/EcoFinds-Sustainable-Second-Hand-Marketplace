@@ -60,8 +60,9 @@ export default function ProfilePage() {
     try {
       await updateProfile(data);
       setSuccess('Profile updated successfully!');
-    } catch (err: any) {
-      setError(err.message || 'Failed to update profile');
+    } catch (err: unknown) {
+      const errorMessage = err instanceof Error ? err.message : 'Failed to update profile';
+      setError(errorMessage);
     } finally {
       setIsLoading(false);
     }
@@ -76,8 +77,9 @@ export default function ProfilePage() {
       await changePassword(data);
       setSuccess('Password changed successfully!');
       passwordForm.reset();
-    } catch (err: any) {
-      setError(err.message || 'Failed to change password');
+    } catch (err: unknown) {
+      const errorMessage = err instanceof Error ? err.message : 'Failed to change password';
+      setError(errorMessage);
     } finally {
       setIsLoading(false);
     }

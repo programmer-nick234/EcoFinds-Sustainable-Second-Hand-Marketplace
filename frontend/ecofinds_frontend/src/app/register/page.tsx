@@ -70,14 +70,15 @@ export default function RegisterPage() {
       setTimeout(() => {
         router.push('/landing');
       }, 2000);
-    } catch (err: any) {
-      if (err.field) {
-        setFieldError(err.field as keyof RegisterFormData, {
+    } catch (err: unknown) {
+      if (err && typeof err === 'object' && 'field' in err) {
+        setFieldError((err as any).field as keyof RegisterFormData, {
           type: 'manual',
-          message: err.message
+          message: (err as any).message
         });
       } else {
-        setError(err.message || 'Registration failed. Please try again.');
+        const errorMessage = err instanceof Error ? err.message : 'Registration failed. Please try again.';
+        setError(errorMessage);
       }
     } finally {
       setIsLoading(false);

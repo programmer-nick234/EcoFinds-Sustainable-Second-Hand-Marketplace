@@ -3,7 +3,7 @@
 import { useState, useEffect, use } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
-import { productsService, Product } from '@/lib/products';
+import { productsService, Product, getImageUrl } from '@/lib/products';
 import { ArrowLeft, MessageCircle, Heart, Share2, User, Calendar, DollarSign } from 'lucide-react';
 
 interface ProductDetailPageProps {
@@ -27,8 +27,9 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
       try {
         const data = await productsService.getProduct(parseInt(resolvedParams.id));
         setProduct(data);
-      } catch (err: any) {
-        setError('Product not found');
+      } catch (err: unknown) {
+        const errorMessage = err instanceof Error ? err.message : 'Product not found';
+        setError(errorMessage);
         console.error('Error fetching product:', err);
       } finally {
         setLoading(false);
@@ -127,9 +128,12 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
                 <div className="aspect-w-16 aspect-h-12 bg-gray-200 rounded-lg overflow-hidden">
                   {product.image ? (
                     <img
-                      src={product.image}
+                      src={getImageUrl(product.image)}
                       alt={product.title}
                       className="w-full h-96 object-cover"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).style.display = 'none';
+                      }}
                     />
                   ) : (
                     <div className="w-full h-96 bg-gray-200 flex items-center justify-center">

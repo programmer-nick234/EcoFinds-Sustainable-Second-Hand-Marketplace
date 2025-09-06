@@ -29,17 +29,20 @@ export default function LandingPage() {
     const fetchProducts = async () => {
       try {
         const data = await productsService.getProducts();
-        // Add default location and rating to products
-        const productsWithDefaults: Product[] = data.slice(0, 8).map(product => ({
+        // Ensure data is an array and add default location and rating to products
+        const productsArray = Array.isArray(data) ? data : ((data as { results?: any[] }).results || []);
+        const productsWithDefaults: Product[] = productsArray.slice(0, 8).map((product: any) => ({
           ...product,
           location: 'New York',
           rating: 4.5,
           isFavorited: false
         }));
         setProducts(productsWithDefaults);
-      } catch (err: any) {
-        setError('Failed to load products');
+      } catch (err: unknown) {
+        const errorMessage = err instanceof Error ? err.message : 'Failed to load products';
+        setError(errorMessage);
         console.error('Error fetching products:', err);
+        setProducts([]); // Set empty array on error
       } finally {
         setLoading(false);
       }
