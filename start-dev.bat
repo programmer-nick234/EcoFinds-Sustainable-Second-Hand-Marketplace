@@ -2,6 +2,18 @@
 echo Starting EcoFinds Development Environment...
 
 echo.
+echo Setting up Frontend Environment...
+cd frontend/ecofinds_frontend
+if not exist .env.local (
+    echo Creating environment file...
+    copy .env.example .env.local
+    echo Environment file created!
+) else (
+    echo Environment file already exists.
+)
+cd ../..
+
+echo.
 echo Starting Backend Server...
 start "Backend" cmd /k "cd backend && python manage.py runserver"
 

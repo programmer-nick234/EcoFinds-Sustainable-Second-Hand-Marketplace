@@ -90,17 +90,31 @@ The backend will be available at `http://localhost:8000`
    cd frontend/ecofinds_frontend
    ```
 
-2. Install dependencies:
+2. **IMPORTANT**: Set up environment variables:
+   ```bash
+   # Copy the example environment file
+   cp .env.example .env.local
+   
+   # Or run the setup script (Windows)
+   setup-env.bat
+   
+   # Or run the setup script (Linux/Mac)
+   chmod +x setup-env.sh && ./setup-env.sh
+   ```
+
+3. Install dependencies:
    ```bash
    npm install
    ```
 
-3. Start the development server:
+4. Start the development server:
    ```bash
    npm run dev
    ```
 
 The frontend will be available at `http://localhost:3000`
+
+**Note**: If you encounter API connection issues, make sure the backend server is running on `http://localhost:8000` and check that the `NEXT_PUBLIC_API_URL` in your `.env.local` file matches your backend URL.
 
 ## 🔗 API Endpoints
 
